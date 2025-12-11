@@ -30,7 +30,17 @@ jar {
 }
 
 shadowJar {
-    archiveBaseName.set('simple-flink-job-all')
-    archiveClassifier.set('')
-    archiveVersion.set(version)
+    archiveBaseName.set('simple-flink-job')
+    archiveClassifier.set('all')
+    archiveVersion.set(project.version as String)
+
+    mainClass = application.mainClass.get()
+
+    dependencies {
+        // Exclude core Flink dependencies to avoid conflicts
+        exclude(dependency('org.apache.flink:flink-core'))
+        exclude(dependency('org.apache.flink:flink-java'))
+        exclude(dependency('org.apache.flink:flink-clients'))
+        exclude(dependency('org.apache.flink:flink-runtime'))
+    }
 }
