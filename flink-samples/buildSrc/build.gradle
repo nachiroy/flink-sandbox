@@ -11,3 +11,8 @@ repositories {
     // Use the plugin portal to apply community plugins in convention plugins.
     gradlePluginPortal()
 }
+
+dependencies {
+    // Add support for creating shadow (fat) JARs.
+    implementation 'com.gradleup.shadow:shadow-gradle-plugin:9.3.0'
+}

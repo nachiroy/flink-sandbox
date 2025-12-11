@@ -11,4 +11,4 @@ plugins {
 }
 
 rootProject.name = 'flink-samples'
-include('app', 'list', 'utilities')
+include('simple-flink-job', 'app', 'list', 'utilities')
