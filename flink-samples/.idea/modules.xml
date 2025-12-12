@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/simple-kafka-flink-job/flink-samples.simple-kafka-flink-job.main.iml" filepath="$PROJECT_DIR$/.idea/modules/simple-kafka-flink-job/flink-samples.simple-kafka-flink-job.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/simple-kafka-flink-job/flink-samples.simple-kafka-flink-job.test.iml" filepath="$PROJECT_DIR$/.idea/modules/simple-kafka-flink-job/flink-samples.simple-kafka-flink-job.test.iml" />
+    </modules>
+  </component>
+</project>

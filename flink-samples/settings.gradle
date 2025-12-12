@@ -11,4 +11,6 @@ plugins {
 }
 
 rootProject.name = 'flink-samples'
-include('simple-flink-job', 'app', 'list', 'utilities')
+include('pojo-flink-job')
+include('simple-flink-job')
+include('simple-kafka-flink-job')

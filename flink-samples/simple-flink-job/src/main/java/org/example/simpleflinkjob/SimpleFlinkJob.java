@@ -17,7 +17,7 @@ public class SimpleFlinkJob {
 
         DataStream<String> upperCasedStream = textStream.map(String::toUpperCase);
 
-        DataStream<String> filteredStream = upperCasedStream.filter(line -> line.length() >= 10);
+        DataStream<String> filteredStream = upperCasedStream.filter(line -> line.length() >= 20);
 
         filteredStream.print();
 

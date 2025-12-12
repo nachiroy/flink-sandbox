@@ -22,7 +22,7 @@ application {
 }
 
 shadowJar {
-    archiveBaseName.set('simple-flink-job')
+    archiveBaseName.set('pojo-flink-job')
     archiveClassifier.set('all')
     archiveVersion.set(project.version as String)
 
@@ -36,3 +36,4 @@ shadowJar {
         exclude(dependency('org.apache.flink:flink-runtime'))
     }
 }
+
