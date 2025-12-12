@@ -19,6 +19,8 @@ services:
     environment:
       - JOB_MANAGER_RPC_ADDRESS=flink-jobmanager
     command: taskmanager
+    volumes:
+      - ./data:/opt/flink/data
     networks:
       - flink-network
 
@@ -30,6 +32,8 @@ services:
     environment:
       - JOB_MANAGER_RPC_ADDRESS=flink-jobmanager
     command: taskmanager
+    volumes:
+      - ./data:/opt/flink/data
     networks:
       - flink-network
 
@@ -41,6 +45,8 @@ services:
     environment:
       - JOB_MANAGER_RPC_ADDRESS=flink-jobmanager
     command: taskmanager
+    volumes:
+      - ./data:/opt/flink/data
     networks:
       - flink-network
 

@@ -18,7 +18,7 @@ test {
 
 application {
     // Define the main class for the application.
-    mainClass = 'org.example.simpleflinkjob.SimpleFlinkJob'
+    mainClass = 'org.example.pojoflinkjob.PojoFlinkJob'
 }
 
 shadowJar {
