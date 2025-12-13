@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/flink-samples/buildSrc" name="buildSrc">
+                <projects>
+                  <project path="$PROJECT_DIR$/flink-samples/buildSrc" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/flink-samples" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/flink-samples" />
+            <option value="$PROJECT_DIR$/flink-samples/buildSrc" />
+            <option value="$PROJECT_DIR$/flink-samples/pojo-flink-job" />
+            <option value="$PROJECT_DIR$/flink-samples/simple-flink-job" />
+            <option value="$PROJECT_DIR$/flink-samples/simple-kafka-flink-job" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

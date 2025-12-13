@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  jobmanager:
+    image: ${FLINK_IMAGE:-flink:1.20.3-scala_2.12-java17}
+    container_name: jobmanager
+    ports:
+      - "8081:8081"
+      # Expose the RPC port to allow external clients to connect to the job manager and submit jobs (using flink-cli for example)
+      - "6123:6123"
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+    command: jobmanager
+    networks:
+      - flink-network
+
+  taskmanager:
+    image: ${FLINK_IMAGE:-flink:1.20.3-scala_2.12-java17}
+    depends_on:
+      - jobmanager
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+    command: taskmanager
+    networks:
+      - flink-network
+
+networks:
+  flink-network:
+    driver: bridge
