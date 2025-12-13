@@ -1,0 +1,52 @@
+// groovy
+plugins {
+    id 'com.gradleup.shadow' version "9.3.0" apply false
+}
+
+// Set a common group ID for all projects
+group = 'com.microsoft.naroy'
+version = '0.1.0-SNAPSHOT'
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'com.gradleup.shadow'
+
+    // Apply Java toolchain 17 for all Java projects
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
+
+    dependencies {
+        testImplementation platform('org.junit:junit-bom:5.10.0')
+        testImplementation 'org.junit.jupiter:junit-jupiter'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+
+    tasks.named('shadowJar') {
+        archiveBaseName.set(project.name)
+        archiveClassifier.set('fatjar')
+        archiveVersion.set(project.version.toString())
+
+        dependencies {
+            // Exclude core Flink dependencies to avoid conflicts
+            exclude(dependency('org.apache.flink:flink-core'))
+            exclude(dependency('org.apache.flink:flink-java'))
+            exclude(dependency('org.apache.flink:flink-clients'))
+            exclude(dependency('org.apache.flink:flink-runtime'))
+        }
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+// ...existing code...
