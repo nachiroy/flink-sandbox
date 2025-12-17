@@ -1,0 +1,10 @@
+application {
+    mainClass.set("com.microsoft.naroy.simpleflinkjob.SimpleFlinkJob")
+}
+
+dependencies {
+    // Flink dependencies
+    implementation 'org.apache.flink:flink-core:1.20.3'
+    implementation 'org.apache.flink:flink-java:1.20.3'
+    implementation 'org.apache.flink:flink-clients:1.20.3'
+}

@@ -8,7 +8,11 @@ group = 'com.microsoft.naroy'
 version = '0.1.0-SNAPSHOT'
 
 subprojects {
+    group = rootProject.group
+    version = rootProject.version
+
     apply plugin: 'java'
+    apply plugin: 'application'
     apply plugin: 'com.gradleup.shadow'
 
     // Apply Java toolchain 17 for all Java projects
@@ -19,6 +23,9 @@ subprojects {
     }
 
     dependencies {
+        implementation 'org.apache.logging.log4j:log4j-core:2.25.2'
+        implementation 'org.apache.logging.log4j:log4j-slf4j2-impl:2.25.2'
+
         testImplementation platform('org.junit:junit-bom:5.10.0')
         testImplementation 'org.junit.jupiter:junit-jupiter'
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
@@ -32,7 +39,9 @@ subprojects {
     tasks.named('shadowJar') {
         archiveBaseName.set(project.name)
         archiveClassifier.set('fatjar')
-        archiveVersion.set(project.version.toString())
+        archiveVersion.set(project.version as String)
+
+        mainClass = application.mainClass.get()
 
         dependencies {
             // Exclude core Flink dependencies to avoid conflicts

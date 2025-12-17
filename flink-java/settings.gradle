@@ -12,5 +12,4 @@ plugins {
 
 rootProject.name = 'flink-java'
 
-include('app')
-include('simple-flink-job')
+include 'simple-flink-job'
